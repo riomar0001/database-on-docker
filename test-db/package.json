@@ -1,0 +1,24 @@
+{
+  "name": "database-connection-test",
+  "version": "1.0.0",
+  "description": "Test connections to MongoDB, MySQL, PostgreSQL, and Redis",
+  "main": "test-connections.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test-connections.js",
+    "test:all": "node test-connections.js",
+    "test:mongodb": "node test-connections.js mongodb",
+    "test:mysql": "node test-connections.js mysql",
+    "test:postgresql": "node test-connections.js postgresql",
+    "test:postgres": "node test-connections.js postgres",
+    "test:redis": "node test-connections.js redis"
+  },
+  "dependencies": {
+    "mongodb": "^6.3.0",
+    "mysql2": "^3.6.5",
+    "pg": "^8.11.3",
+    "redis": "^4.6.12"
+  },
+  "keywords": ["database", "connection", "test", "mongodb", "mysql", "postgresql", "redis"],
+  "author": "riomar0001"
+}
