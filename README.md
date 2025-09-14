@@ -143,9 +143,13 @@ The script will attempt to connect to each database and print the result to the 
 
 See the script for details and configuration options.
 
+
 ## Requirements
 - [Docker](https://www.docker.com/get-started)
 - [Docker Compose](https://docs.docker.com/compose/)
+
+For instructions on how to install Docker, see the official guide:
+- [Install Docker (Official Documentation)](https://docs.docker.com/get-docker/)
 
 ## Author
 - [riomar0001](https://github.com/riomar0001)
