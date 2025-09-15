@@ -39,6 +39,85 @@ call scripts\run-compose.bat <service-folder>
 ```
 Replace `<service-folder>` with one of: `mongodb`, `mysql`, `postgres`, `redis`.
 
+### Accessing pgAdmin (PostgreSQL GUI)
+
+If you start the `postgres` service, pgAdmin will also be available for managing your PostgreSQL database.
+
+#### How to Access pgAdmin:
+
+1. Start the PostgreSQL service (see above).
+2. Open your browser and go to: [http://localhost:5050](http://localhost:5050)
+3. Login with:
+  - **Email:** `admin@admin.com`
+  - **Password:** `admin123`
+4. Add a new server in pgAdmin:
+  - **Host:** `postgres` (if inside Docker network) or `localhost` (if connecting from your host)
+  - **Port:** `5432`
+  - **Username:** `admin`
+  - **Password:** `password`
+
+#### Example Server Configuration in pgAdmin:
+
+  | Field     | Value           |
+  |-----------|-----------------|
+  | Name      | postgres        |
+  | Host      | localhost       |
+  | Port      | 5432            |
+  | Username  | admin           |
+  | Password  | password        |
+
+You can now manage your PostgreSQL database using the pgAdmin web interface.
+
+### Accessing RedisInsight (Redis GUI)
+
+If you start the `redis` service, RedisInsight will also be available for managing your Redis database.
+
+#### How to Access RedisInsight
+
+1. Start the Redis service (see above).
+2. Open your browser and go to: [http://localhost:5540](http://localhost:5540)
+3. In RedisInsight, click **Add Redis Database**.
+4. Enter the following connection details:
+    - **Host:** `redis`
+    - **Port:** `6379`
+    - **Username:** `default`
+    - **Password:** `password`
+5. Click **Test Connection** to connect.
+6. Click **Add Redis Database** to connect.
+
+#### Example Connection Configuration in RedisInsight
+
+| Field     | Value     |
+|-----------|-----------|
+| Host      | redis     |
+| Port      | 6379      |
+| Username  | default   |
+| Password  | password  |
+
+You can now manage your Redis database using the RedisInsight web interface.
+
+### Accessing Compass Web (MongoDB GUI)
+
+If you start the `mongodb` service, Compass Web will be available for managing your MongoDB database.
+
+#### How to Access Compass Web
+
+1. Start the MongoDB service (see above).
+2. Open your browser and go to: [http://localhost:8080](http://localhost:8080)
+
+You can now manage your MongoDB database using the Compass Web interface.
+
+### Accessing phpMyAdmin (MySQL GUI)
+
+If you start the `mysql` service, phpMyAdmin will be available for managing your MySQL database.
+
+#### How to Access phpMyAdmin
+
+1. Start the MySQL service (see above).
+2. Open your browser and go to: [http://localhost:8081](http://localhost:8081)
+
+You can now manage your MySQL database using the phpMyAdmin web interface.
+
 ### Example
 To start MySQL:
 - Linux/macOS: `sh scripts/run-compose.sh mysql`
