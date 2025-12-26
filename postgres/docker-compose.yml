@@ -1,15 +1,8 @@
 version: '3.8'
 
-networks:
-  postgres-net:
-    driver: bridge
-
-volumes:
-  postgres_data:
-
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:17-alpine
     container_name: postgres
     networks:
       - postgres-net
@@ -19,6 +12,11 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -32,5 +30,17 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin_data:/pgadmin4
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+
+networks:
+  postgres-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  pgadmin_data:
